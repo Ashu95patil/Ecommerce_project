@@ -14,14 +14,20 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
+
 @Slf4j
 @RestController
 @RequestMapping(AppConstants.USER_URL)
@@ -74,10 +80,10 @@ public class UserController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<PageableResponse<UserDto>> getAllUsers(@RequestParam (value = AppConstants.NO_VALUE,defaultValue = AppConstants.PAGE_NUMBER,required = false) Integer pageNumber,
-                                                     @RequestParam(value = AppConstants.SIZE_VALUE,defaultValue = AppConstants.PAGE_SIZE,required = false)Integer pageSize,
-                                                     @RequestParam(value = AppConstants.BY_VALUE,defaultValue = AppConstants.SORT_BY,required = false)String sortBy,
-                                                     @RequestParam(value = AppConstants.DIR_VALUE,defaultValue = AppConstants.SORT_DIR,required = false)String sortDir) {
+    public ResponseEntity<PageableResponse<UserDto>> getAllUsers(@RequestParam(value = AppConstants.NO_VALUE, defaultValue = AppConstants.PAGE_NUMBER, required = false) Integer pageNumber,
+                                                                 @RequestParam(value = AppConstants.SIZE_VALUE, defaultValue = AppConstants.PAGE_SIZE, required = false) Integer pageSize,
+                                                                 @RequestParam(value = AppConstants.BY_VALUE, defaultValue = AppConstants.SORT_BY, required = false) String sortBy,
+                                                                 @RequestParam(value = AppConstants.DIR_VALUE, defaultValue = AppConstants.SORT_DIR, required = false) String sortDir) {
 
         log.info("Initiating request for getAll user");
 
@@ -130,18 +136,30 @@ public class UserController {
 
     //upload user Image
     @PostMapping("/image/{userId}")
-    public ResponseEntity<ImageResponse> uploadImage(@RequestParam("userImage")MultipartFile image,
+    public ResponseEntity<ImageResponse> uploadImage(@RequestParam("userImage") MultipartFile image,
                                                      @PathVariable Long userId) throws IOException {
-        UserDto singleUser = userService.getSingleUser(userId);
         String imageName = fileService.uploadFile(image, imageUploadPath);
-         userService.updateUser(singleUser, userId);
+        UserDto singleUser = userService.getSingleUser(userId);
+
+        singleUser.setImageName(imageName);
+        UserDto userDto = userService.updateUser(singleUser, userId);
+
         ImageResponse imageResponse = ImageResponse.builder().imageName(imageName).message(AppConstants.FILE_UPLOADED).success(true).status(HttpStatus.CREATED).build();
-            return new ResponseEntity<>(imageResponse,HttpStatus.CREATED);
+        return new ResponseEntity<>(imageResponse, HttpStatus.CREATED);
     }
 
 
-
-
-
     //serve user image
+    @GetMapping("/image/{userId}")
+    public void serveImage(@PathVariable Long userId, HttpServletResponse response) throws IOException {
+
+        UserDto singleUser = userService.getSingleUser(userId);
+
+        log.info("user image name : {} ",singleUser.getImageName());
+        InputStream resource = fileService.getResource(imageUploadPath, singleUser.getImageName());
+
+        response.setContentType(MediaType.IMAGE_JPEG_VALUE);
+        StreamUtils.copy(resource,response.getOutputStream());
+
+    }
 }

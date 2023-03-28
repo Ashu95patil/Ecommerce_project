@@ -58,8 +58,8 @@ public class GlobalExceptionHandler {
     }
 
     //handle Bad api Exception
-    @ExceptionHandler(BadApiRequest.class)
-    public ResponseEntity<ApiResponse> badApiRequestHandeler(BadApiRequest b) {
+    @ExceptionHandler(BadApiRequestException.class)
+    public ResponseEntity<ApiResponse> badApiRequestExceptionHandeler(BadApiRequestException b) {
 
         log.info("Bad Api Request..!!");
         ApiResponse apiResponse = ApiResponse.builder()
@@ -67,5 +67,15 @@ public class GlobalExceptionHandler {
 
         return new ResponseEntity<>(apiResponse, HttpStatus.BAD_REQUEST);
 
+    }
+
+    @ExceptionHandler(CategoryNotFoundException.class)
+    public ResponseEntity<ApiResponse> categoryNotFoundExceptionHandler(CategoryNotFoundException c){
+
+        log.info("Category id not found....!!");
+
+        ApiResponse apiResponse = ApiResponse.builder().message(c.getMessage()).success(false).status(HttpStatus.NOT_FOUND).build();
+
+       return  new ResponseEntity<>(apiResponse,HttpStatus.BAD_REQUEST);
     }
 }

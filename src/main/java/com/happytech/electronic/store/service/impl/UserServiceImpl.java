@@ -15,12 +15,19 @@ import com.happytech.electronic.store.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import java.util.stream.Collectors;
@@ -35,6 +42,9 @@ public class UserServiceImpl implements UserService  {
 
     @Autowired
     private ModelMapper modelMapper;
+
+    @Value("${user.profile.image.path}")
+    private String imagePath;
 
 
     @Override
@@ -120,6 +130,24 @@ public class UserServiceImpl implements UserService  {
         User deleteUser = this.userRepo.findById(userId)
                 .orElseThrow(() -> new UserNotFoundException(AppConstants.USER, AppConstants.USER_ID, userId));
 
+        //delete user profile image
+        //images/users/abc.png  (is tarah path milelga)
+
+        String fullPath = deleteUser.getImageName();
+        try
+        {
+            Path path= Paths.get(fullPath);
+            Files.delete(path);
+        }catch (NoSuchFileException ex){
+
+            log.info("User image not found in folder...!!");
+            ex.printStackTrace();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
         deleteUser.setIsactive(AppConstants.NO);
 
         userRepo.save(deleteUser);
@@ -158,9 +186,10 @@ public class UserServiceImpl implements UserService  {
         User singleUser = this.userRepo.findById(userId)
                 .orElseThrow(() -> new UserNotFoundException(AppConstants.USER, AppConstants.USER_ID, userId));
 
+        UserDto singleUserDto = this.entityToDto(singleUser);
         log.info("Completed Dao call for getSingle user");
 
-        return this.entityToDto(singleUser);
+        return singleUserDto;
     }
 
 

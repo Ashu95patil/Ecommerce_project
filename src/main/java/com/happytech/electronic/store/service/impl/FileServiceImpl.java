@@ -1,10 +1,9 @@
 package com.happytech.electronic.store.service.impl;
 
-import com.happytech.electronic.store.exception.BadApiRequest;
+import com.happytech.electronic.store.exception.BadApiRequestException;
 import com.happytech.electronic.store.service.FileService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
@@ -29,10 +28,12 @@ public class FileServiceImpl implements FileService {
         String fileNameWithExtension = filename + extention;
         String fullPathWithFileName = path  + fileNameWithExtension;
 
-        if (extention.equalsIgnoreCase(".png") || extention.equalsIgnoreCase(".jpg") || extention.equalsIgnoreCase(".jpeg")) {
+         log.info("full image path : {} ",fullPathWithFileName);
+
+         if (extention.equalsIgnoreCase(".png") || extention.equalsIgnoreCase(".jpg") || extention.equalsIgnoreCase(".jpeg")) {
 
             //file save
-
+            log.info("file extention is {} ",extention);
             File folder = new File(path);
 
             if (!folder.exists()) {
@@ -48,7 +49,7 @@ public class FileServiceImpl implements FileService {
 
         } else {
 
-            throw new BadApiRequest("File with this " + extention + " not allowed..!!");
+            throw new BadApiRequestException("File with this " + extention + " not allowed..!!");
         }
 
     }
