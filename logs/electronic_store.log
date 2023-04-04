@@ -1,0 +1,929 @@
+01:30:24.625 INFO  c.h.e.s.ElectronicStoreApplication - Starting ElectronicStoreApplication using Java 19.0.1 on DELL with PID 6560 (D:\Intellige_workspace\Electronic store\Electronic-store\target\classes started by patil in D:\Intellige_workspace\Electronic store\Electronic-store)
+01:30:24.776 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.5.Final
+01:30:24.821 INFO  c.h.e.s.ElectronicStoreApplication - The following 1 profile is active: "dev"
+01:30:25.028 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+01:30:25.029 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+01:30:27.388 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+01:30:27.531 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 117 ms. Found 3 JPA repository interfaces.
+01:30:29.159 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 1995 (http)
+01:30:29.184 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1995"]
+01:30:29.185 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+01:30:29.187 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+01:30:29.781 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+01:30:29.782 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4750 ms
+01:30:30.272 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+01:30:30.547 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+01:30:30.999 INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+01:30:31.228 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+01:30:32.390 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+01:30:32.420 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+01:30:33.221 ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not determine type for: java.util.List, at table: products, for columns: [org.hibernate.mapping.Column(product_features)]
+01:30:33.222 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not determine type for: java.util.List, at table: products, for columns: [org.hibernate.mapping.Column(product_features)]
+01:30:33.225 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+01:30:33.241 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+01:30:33.244 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+01:30:33.264 INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+01:30:33.300 ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not determine type for: java.util.List, at table: products, for columns: [org.hibernate.mapping.Column(product_features)]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
+	at com.happytech.electronic.store.ElectronicStoreApplication.main(ElectronicStoreApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not determine type for: java.util.List, at table: products, for columns: [org.hibernate.mapping.Column(product_features)]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 19 common frames omitted
+Caused by: org.hibernate.MappingException: Could not determine type for: java.util.List, at table: products, for columns: [org.hibernate.mapping.Column(product_features)]
+	at org.hibernate.mapping.SimpleValue.getType(SimpleValue.java:515)
+	at org.hibernate.mapping.SimpleValue.isValid(SimpleValue.java:482)
+	at org.hibernate.mapping.Property.isValid(Property.java:231)
+	at org.hibernate.mapping.PersistentClass.validate(PersistentClass.java:627)
+	at org.hibernate.mapping.RootClass.validate(RootClass.java:267)
+	at org.hibernate.boot.internal.MetadataImpl.validate(MetadataImpl.java:359)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:314)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	... 23 common frames omitted
+01:32:51.872 INFO  c.h.e.s.ElectronicStoreApplication - Starting ElectronicStoreApplication using Java 19.0.1 on DELL with PID 30456 (D:\Intellige_workspace\Electronic store\Electronic-store\target\classes started by patil in D:\Intellige_workspace\Electronic store\Electronic-store)
+01:32:51.879 INFO  c.h.e.s.ElectronicStoreApplication - The following 1 profile is active: "dev"
+01:32:51.888 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.5.Final
+01:32:52.016 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+01:32:52.018 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+01:32:53.649 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+01:32:53.783 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 111 ms. Found 3 JPA repository interfaces.
+01:32:55.186 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 1995 (http)
+01:32:55.221 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1995"]
+01:32:55.222 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+01:32:55.222 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+01:32:55.691 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+01:32:55.691 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3672 ms
+01:32:56.003 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+01:32:56.104 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+01:32:56.391 INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+01:32:56.556 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+01:32:57.651 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+01:32:57.676 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+01:32:58.298 ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not determine type for: java.util.List, at table: products, for columns: [org.hibernate.mapping.Column(product_reviews)]
+01:32:58.299 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not determine type for: java.util.List, at table: products, for columns: [org.hibernate.mapping.Column(product_reviews)]
+01:32:58.303 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+01:32:58.321 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+01:32:58.325 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+01:32:58.339 INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+01:32:58.367 ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not determine type for: java.util.List, at table: products, for columns: [org.hibernate.mapping.Column(product_reviews)]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
+	at com.happytech.electronic.store.ElectronicStoreApplication.main(ElectronicStoreApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not determine type for: java.util.List, at table: products, for columns: [org.hibernate.mapping.Column(product_reviews)]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 19 common frames omitted
+Caused by: org.hibernate.MappingException: Could not determine type for: java.util.List, at table: products, for columns: [org.hibernate.mapping.Column(product_reviews)]
+	at org.hibernate.mapping.SimpleValue.getType(SimpleValue.java:515)
+	at org.hibernate.mapping.SimpleValue.isValid(SimpleValue.java:482)
+	at org.hibernate.mapping.Property.isValid(Property.java:231)
+	at org.hibernate.mapping.PersistentClass.validate(PersistentClass.java:627)
+	at org.hibernate.mapping.RootClass.validate(RootClass.java:267)
+	at org.hibernate.boot.internal.MetadataImpl.validate(MetadataImpl.java:359)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:314)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	... 23 common frames omitted
+01:34:06.765 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.5.Final
+01:34:06.765 INFO  c.h.e.s.ElectronicStoreApplication - Starting ElectronicStoreApplication using Java 19.0.1 on DELL with PID 28368 (D:\Intellige_workspace\Electronic store\Electronic-store\target\classes started by patil in D:\Intellige_workspace\Electronic store\Electronic-store)
+01:34:06.770 INFO  c.h.e.s.ElectronicStoreApplication - The following 1 profile is active: "dev"
+01:34:06.853 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+01:34:06.853 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+01:34:08.184 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+01:34:08.299 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 98 ms. Found 3 JPA repository interfaces.
+01:34:09.516 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 1995 (http)
+01:34:09.535 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1995"]
+01:34:09.537 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+01:34:09.537 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+01:34:09.963 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+01:34:09.964 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3109 ms
+01:34:10.237 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+01:34:10.302 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+01:34:10.572 INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+01:34:10.709 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+01:34:11.161 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+01:34:11.183 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+01:34:12.564 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+01:34:12.586 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+01:34:13.626 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+01:34:14.261 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+01:34:14.287 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1995"]
+01:34:14.336 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 1995 (http) with context path ''
+01:34:14.356 INFO  c.h.e.s.ElectronicStoreApplication - Started ElectronicStoreApplication in 8.124 seconds (JVM running for 9.223)
+01:45:35.204 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+01:45:35.220 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+01:45:35.274 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 53 ms
+01:45:46.906 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the productDto com.happytech.electronic.store.dtos.ProductDto@3dcbc5a4 
+01:45:46.908 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for create product to dao call com.happytech.electronic.store.dtos.ProductDto@3dcbc5a4 
+01:45:47.384 INFO  c.h.e.s.s.impl.ProductServiceImpl - completed request for saved user from dao call com.happytech.electronic.store.dtos.ProductDto@53508ddb 
+01:45:47.385 INFO  c.h.e.s.controller.ProductController - Exiting into the method : this is the saveProduct of productDto  com.happytech.electronic.store.dtos.ProductDto@53508ddb 
+01:47:56.078 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the productId 1 
+01:47:56.079 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for get ProductId to dao call 1 
+01:47:56.166 INFO  c.h.e.s.s.impl.ProductServiceImpl - completed request for get ProductId from dao call com.happytech.electronic.store.dtos.ProductDto@21b74f3d 
+01:47:56.167 INFO  c.h.e.s.controller.ProductController - Exiting into the method : this is the productById of productDto  com.happytech.electronic.store.dtos.ProductDto@21b74f3d 
+01:50:08.704 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the productDto com.happytech.electronic.store.dtos.ProductDto@3d7bfefc 
+01:50:08.705 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the productId 1 
+01:50:08.706 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for update product to dao call 1 
+01:50:08.707 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for update product to dao call com.happytech.electronic.store.dtos.ProductDto@3d7bfefc 
+01:50:08.772 INFO  c.h.e.s.s.impl.ProductServiceImpl - completed request for updated product from dao call com.happytech.electronic.store.dtos.ProductDto@1dfecc03 
+01:50:08.773 INFO  c.h.e.s.controller.ProductController - Exiting into the method : this is the updateProduct of prodctDto  com.happytech.electronic.store.dtos.ProductDto@1dfecc03 
+01:51:48.391 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+01:51:48.401 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+01:51:48.425 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+01:52:14.065 INFO  c.h.e.s.ElectronicStoreApplication - Starting ElectronicStoreApplication using Java 19.0.1 on DELL with PID 31648 (D:\Intellige_workspace\Electronic store\Electronic-store\target\classes started by patil in D:\Intellige_workspace\Electronic store\Electronic-store)
+01:52:14.069 INFO  c.h.e.s.ElectronicStoreApplication - The following 1 profile is active: "dev"
+01:52:14.109 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.5.Final
+01:52:14.210 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+01:52:14.211 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+01:52:15.577 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+01:52:15.701 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 110 ms. Found 3 JPA repository interfaces.
+01:52:17.153 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 1995 (http)
+01:52:17.177 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1995"]
+01:52:17.179 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+01:52:17.179 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+01:52:17.869 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+01:52:17.872 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3657 ms
+01:52:18.195 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+01:52:18.279 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+01:52:18.633 INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+01:52:18.790 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+01:52:19.440 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+01:52:19.460 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+01:52:21.242 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+01:52:21.261 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+01:52:23.120 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+01:52:24.489 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+01:52:24.539 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1995"]
+01:52:24.599 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 1995 (http) with context path ''
+01:52:24.673 INFO  c.h.e.s.ElectronicStoreApplication - Started ElectronicStoreApplication in 11.215 seconds (JVM running for 12.624)
+01:52:47.509 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+01:52:47.509 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+01:52:47.510 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+01:52:47.902 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the productDto com.happytech.electronic.store.dtos.ProductDto@5e03af75 
+01:52:47.908 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the productId 1 
+01:52:47.918 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for update product to dao call 1 
+01:52:47.918 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for update product to dao call com.happytech.electronic.store.dtos.ProductDto@5e03af75 
+01:52:48.283 INFO  c.h.e.s.s.impl.ProductServiceImpl - completed request for updated product from dao call com.happytech.electronic.store.dtos.ProductDto@2956c31a 
+01:52:48.285 INFO  c.h.e.s.controller.ProductController - Exiting into the method : this is the updateProduct of prodctDto  com.happytech.electronic.store.dtos.ProductDto@2956c31a 
+01:53:53.217 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the productDto com.happytech.electronic.store.dtos.ProductDto@7490f99f 
+01:53:53.219 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for create product to dao call com.happytech.electronic.store.dtos.ProductDto@7490f99f 
+01:53:53.275 INFO  c.h.e.s.s.impl.ProductServiceImpl - completed request for saved user from dao call com.happytech.electronic.store.dtos.ProductDto@71abb4c 
+01:53:53.276 INFO  c.h.e.s.controller.ProductController - Exiting into the method : this is the saveProduct of productDto  com.happytech.electronic.store.dtos.ProductDto@71abb4c 
+01:54:38.197 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the productId 1 
+01:54:38.198 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for delete product to dao call 1 
+01:54:38.231 INFO  c.h.e.s.s.impl.ProductServiceImpl - completed request for deleted product from dao call com.happytech.electronic.store.model.Product@78c52ccf 
+01:54:38.236 INFO  c.h.e.s.controller.ProductController - Exiting into the method : this is the apiResponse of productDto  com.happytech.electronic.store.dtos.ApiResponse@7cffa4b7 
+01:55:32.950 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the productId 2 
+01:55:32.953 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for get ProductId to dao call 2 
+01:55:32.968 INFO  c.h.e.s.s.impl.ProductServiceImpl - completed request for get ProductId from dao call com.happytech.electronic.store.dtos.ProductDto@3ad8f931 
+01:55:32.969 INFO  c.h.e.s.controller.ProductController - Exiting into the method : this is the productById of productDto  com.happytech.electronic.store.dtos.ProductDto@3ad8f931 
+01:56:11.738 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the productId 1 
+01:56:11.738 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for get ProductId to dao call 1 
+01:56:11.751 INFO  c.h.e.s.s.impl.ProductServiceImpl - completed request for get ProductId from dao call com.happytech.electronic.store.dtos.ProductDto@ff2d240 
+01:56:11.752 INFO  c.h.e.s.controller.ProductController - Exiting into the method : this is the productById of productDto  com.happytech.electronic.store.dtos.ProductDto@ff2d240 
+01:56:30.624 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the productId 2 
+01:56:30.624 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for get ProductId to dao call 2 
+01:56:30.638 INFO  c.h.e.s.s.impl.ProductServiceImpl - completed request for get ProductId from dao call com.happytech.electronic.store.dtos.ProductDto@183791e4 
+01:56:30.638 INFO  c.h.e.s.controller.ProductController - Exiting into the method : this is the productById of productDto  com.happytech.electronic.store.dtos.ProductDto@183791e4 
+01:58:08.175 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+01:58:08.187 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+01:58:08.202 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+01:58:15.621 INFO  c.h.e.s.ElectronicStoreApplication - Starting ElectronicStoreApplication using Java 19.0.1 on DELL with PID 33484 (D:\Intellige_workspace\Electronic store\Electronic-store\target\classes started by patil in D:\Intellige_workspace\Electronic store\Electronic-store)
+01:58:15.626 INFO  c.h.e.s.ElectronicStoreApplication - The following 1 profile is active: "dev"
+01:58:15.626 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.5.Final
+01:58:15.699 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+01:58:15.700 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+01:58:16.997 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+01:58:17.119 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 108 ms. Found 3 JPA repository interfaces.
+01:58:18.320 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 1995 (http)
+01:58:18.351 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1995"]
+01:58:18.352 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+01:58:18.353 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+01:58:18.826 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+01:58:18.826 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3125 ms
+01:58:19.139 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+01:58:19.215 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+01:58:19.508 INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+01:58:19.658 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+01:58:20.240 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+01:58:20.262 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+01:58:21.373 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+01:58:21.385 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+01:58:22.322 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+01:58:22.947 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+01:58:22.964 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1995"]
+01:58:23.000 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 1995 (http) with context path ''
+01:58:23.029 INFO  c.h.e.s.ElectronicStoreApplication - Started ElectronicStoreApplication in 7.963 seconds (JVM running for 9.296)
+01:58:34.530 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+01:58:34.531 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+01:58:34.535 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+01:58:34.630 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the productId 1 
+01:58:34.631 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for get ProductId to dao call 1 
+01:58:34.883 INFO  c.h.e.s.s.impl.ProductServiceImpl - completed request for get ProductId from dao call com.happytech.electronic.store.dtos.ProductDto@9937987 
+01:58:34.890 INFO  c.h.e.s.controller.ProductController - Exiting into the method : this is the productById of productDto  com.happytech.electronic.store.dtos.ProductDto@9937987 
+02:00:10.286 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+02:00:10.293 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+02:00:10.304 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+02:00:18.574 INFO  c.h.e.s.ElectronicStoreApplication - Starting ElectronicStoreApplication using Java 19.0.1 on DELL with PID 34404 (D:\Intellige_workspace\Electronic store\Electronic-store\target\classes started by patil in D:\Intellige_workspace\Electronic store\Electronic-store)
+02:00:18.582 INFO  c.h.e.s.ElectronicStoreApplication - The following 1 profile is active: "dev"
+02:00:18.586 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.5.Final
+02:00:18.675 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+02:00:18.675 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+02:00:20.033 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+02:00:20.154 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 105 ms. Found 3 JPA repository interfaces.
+02:00:21.468 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 1995 (http)
+02:00:21.490 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1995"]
+02:00:21.491 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+02:00:21.491 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+02:00:22.024 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+02:00:22.024 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3346 ms
+02:00:22.372 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+02:00:22.443 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+02:00:22.760 INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+02:00:22.922 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+02:00:23.398 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+02:00:23.418 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+02:00:24.755 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+02:00:24.768 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+02:00:25.681 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+02:00:27.008 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+02:00:27.027 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1995"]
+02:00:27.067 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 1995 (http) with context path ''
+02:00:27.086 INFO  c.h.e.s.ElectronicStoreApplication - Started ElectronicStoreApplication in 9.166 seconds (JVM running for 10.264)
+02:00:32.724 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+02:00:32.728 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+02:00:32.729 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+02:00:32.791 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the productId 1 
+02:00:32.792 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for get ProductId to dao call 1 
+02:00:32.877 INFO  c.h.e.s.s.impl.ProductServiceImpl - completed request for get ProductId from dao call null 
+02:00:32.878 INFO  c.h.e.s.controller.ProductController - Exiting into the method : this is the productById of productDto  null 
+02:01:24.323 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+02:01:24.329 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+02:01:24.342 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+02:01:32.397 INFO  c.h.e.s.ElectronicStoreApplication - Starting ElectronicStoreApplication using Java 19.0.1 on DELL with PID 21000 (D:\Intellige_workspace\Electronic store\Electronic-store\target\classes started by patil in D:\Intellige_workspace\Electronic store\Electronic-store)
+02:01:32.401 INFO  c.h.e.s.ElectronicStoreApplication - The following 1 profile is active: "dev"
+02:01:32.408 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.5.Final
+02:01:32.490 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+02:01:32.490 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+02:01:33.854 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+02:01:33.978 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 110 ms. Found 3 JPA repository interfaces.
+02:01:35.192 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 1995 (http)
+02:01:35.239 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1995"]
+02:01:35.240 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+02:01:35.240 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+02:01:35.689 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+02:01:35.689 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3197 ms
+02:01:36.037 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+02:01:36.121 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+02:01:36.454 INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+02:01:36.604 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+02:01:37.160 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+02:01:37.182 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+02:01:38.354 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+02:01:38.367 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+02:01:39.307 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+02:01:39.889 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+02:01:39.910 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1995"]
+02:01:39.946 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 1995 (http) with context path ''
+02:01:39.962 INFO  c.h.e.s.ElectronicStoreApplication - Started ElectronicStoreApplication in 8.141 seconds (JVM running for 9.378)
+02:02:23.888 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+02:02:23.889 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+02:02:23.892 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+02:02:23.974 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the productId 1 
+02:02:23.975 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for get ProductId to dao call 1 
+02:02:24.176 INFO  c.h.e.s.s.impl.ProductServiceImpl - completed request for get ProductId from dao call com.happytech.electronic.store.dtos.ProductDto@6db13fb8 
+02:02:24.179 INFO  c.h.e.s.controller.ProductController - Exiting into the method : this is the productById of productDto  com.happytech.electronic.store.dtos.ProductDto@6db13fb8 
+02:02:35.057 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the allProduct 
+02:02:35.059 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for getAllProducts to dao call 
+02:02:35.395 ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "com.happytech.electronic.store.model.Product.getIsactive()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "com.happytech.electronic.store.model.Product.getIsactive()" is null
+	at com.happytech.electronic.store.service.impl.ProductServiceImpl.lambda$getAllProducts$3(ProductServiceImpl.java:122)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:178)
+	at java.base/java.util.ArrayList$Itr.forEachRemaining(ArrayList.java:1003)
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1921)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at com.happytech.electronic.store.service.impl.ProductServiceImpl.getAllProducts(ProductServiceImpl.java:122)
+	at com.happytech.electronic.store.controller.ProductController.getAllProduct(ProductController.java:84)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:670)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:891)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1784)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+02:03:06.292 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+02:03:06.295 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+02:03:06.318 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+15:36:53.270 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.5.Final
+15:36:53.270 INFO  c.h.e.s.ElectronicStoreApplication - Starting ElectronicStoreApplication using Java 19.0.1 on DELL with PID 29448 (D:\Intellige_workspace\Electronic store\Electronic-store\target\classes started by patil in D:\Intellige_workspace\Electronic store\Electronic-store)
+15:36:53.275 INFO  c.h.e.s.ElectronicStoreApplication - The following 1 profile is active: "dev"
+15:36:53.438 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+15:36:53.439 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+15:36:54.848 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+15:36:54.970 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 103 ms. Found 3 JPA repository interfaces.
+15:36:56.414 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 1995 (http)
+15:36:56.434 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1995"]
+15:36:56.435 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+15:36:56.436 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+15:36:56.944 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:36:56.945 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3505 ms
+15:36:57.245 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+15:36:57.334 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+15:36:57.617 INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+15:36:57.795 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+15:36:58.435 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+15:36:58.458 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+15:36:59.604 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+15:36:59.622 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+15:37:00.480 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+15:37:01.049 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+15:37:01.092 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1995"]
+15:37:01.128 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 1995 (http) with context path ''
+15:37:01.143 INFO  c.h.e.s.ElectronicStoreApplication - Started ElectronicStoreApplication in 8.493 seconds (JVM running for 9.917)
+15:38:03.110 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:38:03.111 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+15:38:03.115 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+15:38:03.390 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the productDto com.happytech.electronic.store.dtos.ProductDto@50a2f873 
+15:38:03.394 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the productId 1 
+15:38:03.396 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for update product to dao call 1 
+15:38:03.397 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for update product to dao call com.happytech.electronic.store.dtos.ProductDto@50a2f873 
+15:38:03.788 INFO  c.h.e.s.s.impl.ProductServiceImpl - completed request for updated product from dao call com.happytech.electronic.store.dtos.ProductDto@1d7115f5 
+15:38:03.789 INFO  c.h.e.s.controller.ProductController - Exiting into the method : this is the updateProduct of prodctDto  com.happytech.electronic.store.dtos.ProductDto@1d7115f5 
+15:38:30.041 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the productId 1 
+15:38:30.042 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for get ProductId to dao call 1 
+15:38:30.060 INFO  c.h.e.s.s.impl.ProductServiceImpl - completed request for get ProductId from dao call com.happytech.electronic.store.dtos.ProductDto@7aa1ef53 
+15:38:30.062 INFO  c.h.e.s.controller.ProductController - Exiting into the method : this is the productById of productDto  com.happytech.electronic.store.dtos.ProductDto@7aa1ef53 
+16:06:09.706 INFO  c.h.e.s.ElectronicStoreApplication - Starting ElectronicStoreApplication using Java 19.0.1 on DELL with PID 24724 (D:\Intellige_workspace\Electronic store\Electronic-store\target\classes started by patil in D:\Intellige_workspace\Electronic store\Electronic-store)
+16:06:09.714 INFO  c.h.e.s.ElectronicStoreApplication - The following 1 profile is active: "dev"
+16:06:09.714 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.5.Final
+16:06:09.874 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+16:06:09.875 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+16:06:11.201 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+16:06:11.339 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 114 ms. Found 3 JPA repository interfaces.
+16:06:12.718 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 1995 (http)
+16:06:12.748 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1995"]
+16:06:12.750 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:06:12.751 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+16:06:13.248 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:06:13.249 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3373 ms
+16:06:13.532 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+16:06:13.621 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+16:06:13.935 INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+16:06:14.106 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+16:06:14.747 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+16:06:14.769 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+16:06:15.861 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+16:06:15.876 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+16:06:16.655 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+16:06:17.213 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+16:06:17.230 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1995"]
+16:06:17.280 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 1995 (http) with context path ''
+16:06:17.296 INFO  c.h.e.s.ElectronicStoreApplication - Started ElectronicStoreApplication in 8.211 seconds (JVM running for 9.508)
+16:06:54.327 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:06:54.328 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+16:06:54.331 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+16:06:54.922 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.happytech.electronic.store.dtos.ProductDto> com.happytech.electronic.store.controller.ProductController.createProduct(com.happytech.electronic.store.dtos.ProductDto,java.lang.Long): [Field error in object 'productDto' on field 'price': rejected value [null]; codes [NotNull.productDto.price,NotNull.price,NotNull.java.lang.Double,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [productDto.price,price]; arguments []; default message [price]]; default message [must not be null]] ]
+16:07:07.284 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.happytech.electronic.store.dtos.ProductDto> com.happytech.electronic.store.controller.ProductController.createProduct(com.happytech.electronic.store.dtos.ProductDto,java.lang.Long): [Field error in object 'productDto' on field 'price': rejected value [null]; codes [NotNull.productDto.price,NotNull.price,NotNull.java.lang.Double,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [productDto.price,price]; arguments []; default message [price]]; default message [must not be null]] ]
+16:07:32.326 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the productDto com.happytech.electronic.store.dtos.ProductDto@4039da7e 
+16:07:32.328 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the productId 1 
+16:07:32.328 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for update product to dao call 1 
+16:07:32.329 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for update product to dao call com.happytech.electronic.store.dtos.ProductDto@4039da7e 
+16:07:32.649 INFO  c.h.e.s.s.impl.ProductServiceImpl - completed request for updated product from dao call com.happytech.electronic.store.dtos.ProductDto@6c202b25 
+16:07:32.650 INFO  c.h.e.s.controller.ProductController - Exiting into the method : this is the updateProduct of prodctDto  com.happytech.electronic.store.dtos.ProductDto@6c202b25 
+16:07:38.383 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the productId 1 
+16:07:38.384 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for get ProductId to dao call 1 
+16:07:38.399 INFO  c.h.e.s.s.impl.ProductServiceImpl - completed request for get ProductId from dao call com.happytech.electronic.store.dtos.ProductDto@3d51323a 
+16:07:38.399 INFO  c.h.e.s.controller.ProductController - Exiting into the method : this is the productById of productDto  com.happytech.electronic.store.dtos.ProductDto@3d51323a 
+16:08:13.912 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the allProduct 
+16:08:13.913 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for getAllProducts to dao call 
+16:08:14.166 ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "com.happytech.electronic.store.model.Product.getIsactive()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "com.happytech.electronic.store.model.Product.getIsactive()" is null
+	at com.happytech.electronic.store.service.impl.ProductServiceImpl.lambda$getAllProducts$3(ProductServiceImpl.java:121)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:178)
+	at java.base/java.util.ArrayList$Itr.forEachRemaining(ArrayList.java:1003)
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1921)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at com.happytech.electronic.store.service.impl.ProductServiceImpl.getAllProducts(ProductServiceImpl.java:121)
+	at com.happytech.electronic.store.controller.ProductController.getAllProduct(ProductController.java:86)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:670)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:891)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1784)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+16:15:17.511 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+16:15:17.515 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+16:15:17.526 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+16:15:24.221 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.5.Final
+16:15:24.221 INFO  c.h.e.s.ElectronicStoreApplication - Starting ElectronicStoreApplication using Java 19.0.1 on DELL with PID 10768 (D:\Intellige_workspace\Electronic store\Electronic-store\target\classes started by patil in D:\Intellige_workspace\Electronic store\Electronic-store)
+16:15:24.226 INFO  c.h.e.s.ElectronicStoreApplication - The following 1 profile is active: "dev"
+16:15:24.292 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+16:15:24.293 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+16:15:25.281 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+16:15:25.390 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 97 ms. Found 3 JPA repository interfaces.
+16:15:26.497 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 1995 (http)
+16:15:26.527 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1995"]
+16:15:26.528 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:15:26.528 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+16:15:27.041 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:15:27.042 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2748 ms
+16:15:27.322 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+16:15:27.389 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+16:15:27.654 INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+16:15:27.784 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+16:15:28.275 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+16:15:28.297 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+16:15:29.332 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+16:15:29.346 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+16:15:30.111 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+16:15:30.627 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+16:15:30.650 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1995"]
+16:15:30.692 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 1995 (http) with context path ''
+16:15:30.707 INFO  c.h.e.s.ElectronicStoreApplication - Started ElectronicStoreApplication in 6.974 seconds (JVM running for 8.094)
+16:46:53.007 WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=28m24s559ms481µs400ns).
+17:04:02.615 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+17:04:02.624 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+17:04:02.651 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 26 ms
+17:04:03.610 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the allProduct 
+17:04:03.610 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for getAllProducts to dao call 
+17:04:04.177 ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "com.happytech.electronic.store.model.Product.getIsactive()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "com.happytech.electronic.store.model.Product.getIsactive()" is null
+	at com.happytech.electronic.store.service.impl.ProductServiceImpl.lambda$getAllProducts$3(ProductServiceImpl.java:121)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:178)
+	at java.base/java.util.ArrayList$Itr.forEachRemaining(ArrayList.java:1003)
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1921)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at com.happytech.electronic.store.service.impl.ProductServiceImpl.getAllProducts(ProductServiceImpl.java:121)
+	at com.happytech.electronic.store.controller.ProductController.getAllProduct(ProductController.java:86)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:670)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:891)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1784)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+17:07:30.300 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+17:07:30.308 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+17:07:30.331 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+17:07:43.257 INFO  c.h.e.s.ElectronicStoreApplication - Starting ElectronicStoreApplication using Java 19.0.1 on DELL with PID 32652 (D:\Intellige_workspace\Electronic store\Electronic-store\target\classes started by patil in D:\Intellige_workspace\Electronic store\Electronic-store)
+17:07:43.274 INFO  c.h.e.s.ElectronicStoreApplication - The following 1 profile is active: "dev"
+17:07:43.356 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.5.Final
+17:07:43.634 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+17:07:43.636 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+17:07:45.822 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+17:07:45.968 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 125 ms. Found 3 JPA repository interfaces.
+17:07:47.463 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 1995 (http)
+17:07:47.489 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1995"]
+17:07:47.491 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+17:07:47.491 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+17:07:48.100 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+17:07:48.100 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4463 ms
+17:07:48.784 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+17:07:49.007 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+17:07:49.528 INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+17:07:49.712 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+17:07:50.342 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+17:07:50.365 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+17:07:51.454 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+17:07:51.469 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+17:07:52.604 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+17:07:53.216 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+17:07:53.238 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1995"]
+17:07:53.284 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 1995 (http) with context path ''
+17:07:53.302 INFO  c.h.e.s.ElectronicStoreApplication - Started ElectronicStoreApplication in 11.537 seconds (JVM running for 13.943)
+17:08:46.166 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+17:08:46.166 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+17:08:46.169 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+17:08:46.451 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the productDto com.happytech.electronic.store.dtos.ProductDto@2e751761 
+17:08:46.452 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for create product to dao call com.happytech.electronic.store.dtos.ProductDto@2e751761 
+17:08:46.586 INFO  c.h.e.s.s.impl.ProductServiceImpl - completed request for saved user from dao call com.happytech.electronic.store.dtos.ProductDto@7f97cf74 
+17:08:46.589 INFO  c.h.e.s.controller.ProductController - Exiting into the method : this is the saveProduct of productDto  com.happytech.electronic.store.dtos.ProductDto@7f97cf74 
+17:08:52.384 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the allProduct 
+17:08:52.384 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for getAllProducts to dao call 
+17:08:52.555 ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "com.happytech.electronic.store.model.Product.getIsactive()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "com.happytech.electronic.store.model.Product.getIsactive()" is null
+	at com.happytech.electronic.store.service.impl.ProductServiceImpl.lambda$getAllProducts$3(ProductServiceImpl.java:122)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:178)
+	at java.base/java.util.ArrayList$Itr.forEachRemaining(ArrayList.java:1003)
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1921)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at com.happytech.electronic.store.service.impl.ProductServiceImpl.getAllProducts(ProductServiceImpl.java:122)
+	at com.happytech.electronic.store.controller.ProductController.getAllProduct(ProductController.java:86)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:670)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:891)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1784)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+17:09:29.193 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the allProduct 
+17:09:29.194 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for getAllProducts to dao call 
+17:09:29.208 ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "com.happytech.electronic.store.model.Product.getIsactive()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "com.happytech.electronic.store.model.Product.getIsactive()" is null
+	at com.happytech.electronic.store.service.impl.ProductServiceImpl.lambda$getAllProducts$3(ProductServiceImpl.java:122)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:178)
+	at java.base/java.util.ArrayList$Itr.forEachRemaining(ArrayList.java:1003)
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1921)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at com.happytech.electronic.store.service.impl.ProductServiceImpl.getAllProducts(ProductServiceImpl.java:122)
+	at com.happytech.electronic.store.controller.ProductController.getAllProduct(ProductController.java:86)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:670)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:891)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1784)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+17:09:38.140 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the productId 1 
+17:09:38.140 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for get ProductId to dao call 1 
+17:09:38.168 INFO  c.h.e.s.s.impl.ProductServiceImpl - completed request for get ProductId from dao call com.happytech.electronic.store.dtos.ProductDto@427d348 
+17:09:38.169 INFO  c.h.e.s.controller.ProductController - Exiting into the method : this is the productById of productDto  com.happytech.electronic.store.dtos.ProductDto@427d348 
+17:10:20.460 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the allProduct 
+17:10:20.460 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for getAllProducts to dao call 
+17:10:20.485 INFO  c.h.e.s.s.impl.ProductServiceImpl - completed request getAllProducts from dao call com.happytech.electronic.store.dtos.PageableResponse@71e84d74 
+17:10:20.485 INFO  c.h.e.s.controller.ProductController - Exiting into the method : this is the allProducts of productDto  com.happytech.electronic.store.dtos.PageableResponse@71e84d74 
+17:12:36.414 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the liveProduct 
+17:12:36.415 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for getAllLive to dao call 
+17:12:36.443 INFO  c.h.e.s.s.impl.ProductServiceImpl - completed request for  getAllLive from dao call com.happytech.electronic.store.dtos.PageableResponse@5100e079 
+17:12:36.444 INFO  c.h.e.s.controller.ProductController - Exiting into the method : this is the allLive of productDto  com.happytech.electronic.store.dtos.PageableResponse@5100e079 
+17:18:28.847 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+17:18:28.880 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+17:18:28.932 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+17:18:38.851 INFO  c.h.e.s.ElectronicStoreApplication - Starting ElectronicStoreApplication using Java 19.0.1 on DELL with PID 36144 (D:\Intellige_workspace\Electronic store\Electronic-store\target\classes started by patil in D:\Intellige_workspace\Electronic store\Electronic-store)
+17:18:38.855 INFO  c.h.e.s.ElectronicStoreApplication - The following 1 profile is active: "dev"
+17:18:38.867 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.5.Final
+17:18:38.984 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+17:18:38.985 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+17:18:40.562 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+17:18:40.809 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 223 ms. Found 3 JPA repository interfaces.
+17:18:42.451 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 1995 (http)
+17:18:42.498 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1995"]
+17:18:42.499 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+17:18:42.500 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+17:18:43.234 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+17:18:43.236 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4246 ms
+17:18:43.678 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+17:18:43.807 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+17:18:44.241 INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+17:18:44.515 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+17:18:45.195 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+17:18:45.222 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+17:18:46.717 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+17:18:46.734 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+17:18:47.888 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+17:18:48.752 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+17:18:48.793 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1995"]
+17:18:48.855 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 1995 (http) with context path ''
+17:18:48.882 INFO  c.h.e.s.ElectronicStoreApplication - Started ElectronicStoreApplication in 10.73 seconds (JVM running for 12.156)
+17:18:56.666 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+17:18:56.667 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+17:18:56.670 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+17:18:56.741 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the allProduct 
+17:18:56.742 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for getAllProducts to dao call 
+17:18:56.985 INFO  c.h.e.s.s.impl.ProductServiceImpl - completed request getAllProducts from dao call com.happytech.electronic.store.dtos.PageableResponse@6c7dbc17 
+17:18:56.986 INFO  c.h.e.s.controller.ProductController - Exiting into the method : this is the allProducts of productDto  com.happytech.electronic.store.dtos.PageableResponse@6c7dbc17 
+17:20:51.122 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+17:20:51.131 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+17:20:51.157 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+17:20:59.275 INFO  c.h.e.s.ElectronicStoreApplication - Starting ElectronicStoreApplication using Java 19.0.1 on DELL with PID 31060 (D:\Intellige_workspace\Electronic store\Electronic-store\target\classes started by patil in D:\Intellige_workspace\Electronic store\Electronic-store)
+17:20:59.275 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.5.Final
+17:20:59.279 INFO  c.h.e.s.ElectronicStoreApplication - The following 1 profile is active: "dev"
+17:20:59.365 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+17:20:59.365 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+17:21:00.642 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+17:21:00.779 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 122 ms. Found 3 JPA repository interfaces.
+17:21:01.915 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 1995 (http)
+17:21:01.934 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1995"]
+17:21:01.936 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+17:21:01.937 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+17:21:02.383 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+17:21:02.384 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3017 ms
+17:21:02.713 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+17:21:02.788 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+17:21:03.083 INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+17:21:03.228 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+17:21:03.711 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+17:21:03.730 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+17:21:04.807 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+17:21:04.818 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+17:21:05.672 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+17:21:06.328 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+17:21:06.347 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1995"]
+17:21:06.392 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 1995 (http) with context path ''
+17:21:06.410 INFO  c.h.e.s.ElectronicStoreApplication - Started ElectronicStoreApplication in 7.69 seconds (JVM running for 8.864)
+17:35:02.332 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+17:35:02.358 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+17:35:02.388 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+17:35:08.222 INFO  c.h.e.s.ElectronicStoreApplication - Starting ElectronicStoreApplication using Java 19.0.1 on DELL with PID 11696 (D:\Intellige_workspace\Electronic store\Electronic-store\target\classes started by patil in D:\Intellige_workspace\Electronic store\Electronic-store)
+17:35:08.229 INFO  c.h.e.s.ElectronicStoreApplication - The following 1 profile is active: "dev"
+17:35:08.246 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.5.Final
+17:35:08.375 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+17:35:08.377 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+17:35:10.155 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+17:35:10.287 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 114 ms. Found 3 JPA repository interfaces.
+17:35:11.759 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 1995 (http)
+17:35:11.787 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1995"]
+17:35:11.788 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+17:35:11.789 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+17:35:12.293 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+17:35:12.295 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3916 ms
+17:35:12.624 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+17:35:12.736 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+17:35:13.065 INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+17:35:13.244 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+17:35:13.948 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+17:35:13.971 INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+17:35:15.212 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+17:35:15.228 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+17:35:16.243 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+17:35:16.913 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+17:35:16.936 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1995"]
+17:35:16.983 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 1995 (http) with context path ''
+17:35:17.002 INFO  c.h.e.s.ElectronicStoreApplication - Started ElectronicStoreApplication in 9.544 seconds (JVM running for 11.25)
+17:35:29.458 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+17:35:29.461 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+17:35:29.463 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+17:35:29.581 INFO  c.h.e.s.controller.ProductController - Entering into the method : this is the allProduct 
+17:35:29.582 INFO  c.h.e.s.s.impl.ProductServiceImpl - Initiating request for getAllProducts to dao call 
+17:35:29.863 INFO  c.h.e.s.s.impl.ProductServiceImpl - completed request getAllProducts from dao call com.happytech.electronic.store.dtos.PageableResponse@ee7b6cc 
+17:35:29.863 INFO  c.h.e.s.controller.ProductController - Exiting into the method : this is the allProducts of productDto  com.happytech.electronic.store.dtos.PageableResponse@ee7b6cc 
