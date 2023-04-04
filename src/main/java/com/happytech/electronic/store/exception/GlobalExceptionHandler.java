@@ -27,7 +27,17 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(apiResponse, HttpStatus.NOT_FOUND);
 
     }
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ApiResponse> resourceNotFoundExceptionHandler(ResourceNotFoundException u) {
 
+        log.info("Exception Handler invoked..!!");
+
+        ApiResponse apiResponse = ApiResponse.builder()
+                .message(u.getMessage()).success(false).status(HttpStatus.NOT_FOUND).build();
+
+        return new ResponseEntity<>(apiResponse, HttpStatus.NOT_FOUND);
+
+    }
     @ExceptionHandler(EmailNotFoundException.class)
     public ResponseEntity<String> emailNotFoundExceptionHandler(EmailNotFoundException e) {
 

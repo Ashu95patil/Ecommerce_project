@@ -1,5 +1,6 @@
 package com.happytech.electronic.store.service.impl;
 
+import com.happytech.electronic.store.config.AppConstants;
 import com.happytech.electronic.store.exception.BadApiRequestException;
 import com.happytech.electronic.store.service.FileService;
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +31,7 @@ public class FileServiceImpl implements FileService {
 
          log.info("full image path : {} ",fullPathWithFileName);
 
-         if (extention.equalsIgnoreCase(".png") || extention.equalsIgnoreCase(".jpg") || extention.equalsIgnoreCase(".jpeg")) {
+         if (extention.equalsIgnoreCase(AppConstants.PNG) || extention.equalsIgnoreCase(AppConstants.JPG) || extention.equalsIgnoreCase(AppConstants.JPEG)) {
 
             //file save
             log.info("file extention is {} ",extention);
