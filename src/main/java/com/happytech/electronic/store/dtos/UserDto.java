@@ -1,5 +1,6 @@
 package com.happytech.electronic.store.dtos;
 
+import com.happytech.electronic.store.config.AppConstants;
 import com.happytech.electronic.store.model.BaseEntityClass;
 import com.happytech.electronic.store.validate.ImageNameValid;
 import lombok.*;
@@ -16,27 +17,26 @@ public class UserDto extends BaseEntityDto {
 
 
     private Long userId;
- 
- //  @NotEmpty
-   @Size(min = 4,max = 20,message = "username must be min 4 characters..!!")
-    private String name;
-   @Pattern(regexp = "^[a-z0-9][-a-z0-9._]+@([-a-z0-9]+\\.)+[a-z]{2,5}$",message = "Invalid EmailId...!!")
-    @NotBlank(message = "Email is required...!!")
-   private String email;
 
-  // @Pattern(regexp = "^(?=.[a-z])(?=.[A-Z])(?=.\\d)(?=.[#$@!%&?])[A-Za-z\\d#$@!%&?]{8,}$")
-   @NotBlank(message = "Password is required..!!")
+    //  @NotEmpty
+    @Size(min = 4, max = 20, message = AppConstants.NAME_SIZE)
+    private String name;
+    @Pattern(regexp = AppConstants.EMAIL_REGEXP, message = "Invalid EmailId...!!")
+    @NotBlank(message = AppConstants.EMAIL_MSG)
+    private String email;
+
+    // @Pattern(regexp = "^(?=.[a-z])(?=.[A-Z])(?=.\\d)(?=.[#$@!%&?])[A-Za-z\\d#$@!%&?]{8,}$")
+    @NotBlank(message = AppConstants.PASSWORD_MSG)
     private String password;
-    @Size(min = 4, max = 6,message = "Invalid gender..!!")
+    @Size(min = 4, max = 6, message = AppConstants.GENDER_MSG)
     private String gender;
 
-    @NotBlank(message = "Write something about yourself..!!")
+    @NotBlank(message = AppConstants.ABOUT_MSG)
     private String about;
 
     //Custome validator
     @ImageNameValid
     private String imageName;
-
 
 
 }

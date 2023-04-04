@@ -43,13 +43,13 @@ public class UserServiceImpl implements UserService  {
     @Autowired
     private ModelMapper modelMapper;
 
-    @Value("${user.profile.image.path}")
+    @Value(AppConstants.USER_IMAGE_PATH)
     private String imagePath;
 
 
     @Override
     public UserDto createUser(UserDto userDto) {
-        log.info("Initiating Dao call for save user");
+        log.info("Initiating request for save user to dao call {} ",userDto);
 
         //dto -> entity
         User user = dtoToEntity(userDto);
@@ -61,7 +61,7 @@ public class UserServiceImpl implements UserService  {
         //entity -> dto
         UserDto newDto = entityToDto(savedUser);
 
-        log.info("Completed Dao call for save user");
+        log.info("completed request for saved user from dao call {} ",newDto);
 
         return newDto;
     }
@@ -102,7 +102,9 @@ public class UserServiceImpl implements UserService  {
     @Override
     public UserDto updateUser(UserDto userDto, Long userId) {
 
-        log.info("Initiating Dao call for update user");
+        log.info("Initiating request for update user to dao call {} ",userDto);
+        log.info("Initiating request for update user to dao call {} ",userId);
+
 
         User user = this.userRepo.findById(userId)
                 .orElseThrow(() -> new UserNotFoundException(AppConstants.USER, AppConstants.USER_ID, userId));
@@ -117,15 +119,14 @@ public class UserServiceImpl implements UserService  {
         User updateUser = this.userRepo.save(user);
         UserDto userDto1 = this.entityToDto(updateUser);
 
-        log.info("Completed Dao call for update user");
-
+        log.info("completed request for updated user from dao call {} ",userDto1);
         return userDto1;
     }
 
     @Override
     public void deleteUser(Long userId) {
 
-        log.info("Initiating Dao call for delete user");
+        log.info("Initiating request for delete user to dao call {} ",userId);
 
         User deleteUser = this.userRepo.findById(userId)
                 .orElseThrow(() -> new UserNotFoundException(AppConstants.USER, AppConstants.USER_ID, userId));
@@ -133,7 +134,9 @@ public class UserServiceImpl implements UserService  {
         //delete user profile image
         //images/users/abc.png  (is tarah path milelga)
 
-        String fullPath = deleteUser.getImageName();
+
+
+        String fullPath = imagePath+deleteUser.getImageName();
         try
         {
             Path path= Paths.get(fullPath);
@@ -151,14 +154,15 @@ public class UserServiceImpl implements UserService  {
         deleteUser.setIsactive(AppConstants.NO);
 
         userRepo.save(deleteUser);
-        log.info("Completed Dao call for delete user");
+        log.info("completed request for deleted user from dao call {} ",deleteUser);
 
     }
 
     @Override
     public PageableResponse<UserDto> getAllUser(Integer pageNumber, Integer pageSize, String sortBy, String sortDir) {
 
-        log.info("Initiating Dao call for getAll user");
+        log.info("Initiating request for getAllUser user to dao call ");
+
 
         Sort sort = (sortDir.equalsIgnoreCase(AppConstants.SORT_DIR) ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending());
 
@@ -173,7 +177,7 @@ public class UserServiceImpl implements UserService  {
         //  List<UserDto> allUsers = collect.stream().map((u) -> this.modelMapper.map(u, UserDto.class)).collect(Collectors.toList());
 
 
-        log.info("Completed Dao call for getAll user");
+        log.info("completed request for getAllUser user from dao call {} ",pageableResponse);
 
         return pageableResponse;
     }
@@ -181,14 +185,13 @@ public class UserServiceImpl implements UserService  {
     @Override
     public UserDto getSingleUser(Long userId) {
 
-        log.info("Initiating Dao call for getSingle user");
+        log.info("Initiating request for getSingleUser user to dao call {} ",userId);
 
         User singleUser = this.userRepo.findById(userId)
                 .orElseThrow(() -> new UserNotFoundException(AppConstants.USER, AppConstants.USER_ID, userId));
 
         UserDto singleUserDto = this.entityToDto(singleUser);
-        log.info("Completed Dao call for getSingle user");
-
+        log.info("completed request for getSingleUser user from dao call {} ",singleUserDto);
         return singleUserDto;
     }
 
@@ -196,13 +199,13 @@ public class UserServiceImpl implements UserService  {
     @Override
     public UserDto getUserByEmail(String email) {
 
-        log.info("Initiating Dao call for getByEmail user");
+        log.info("Initiating request for get user email  to dao call {} ",email);
+
 
         User userEmail = this.userRepo.findByEmail(email)
                 .orElseThrow(() -> new EmailNotFoundException((AppConstants.USER_EMAIL)));
 
-        log.info("Completed Dao call for getByEmail user");
-
+        log.info("completed request for get user email  from dao call {} ",userEmail);
         return this.entityToDto(userEmail);
 
 
@@ -211,14 +214,15 @@ public class UserServiceImpl implements UserService  {
     @Override
     public List<UserDto> searchUser(String keyword) {
 
-        log.info("Initiating Dao call for search user");
+        log.info("Initiating request for get keyword to dao call {} ",keyword);
+
 
         List<User> users = userRepo.findByNameContaining(keyword);
         List<UserDto> dtoList = users.stream()
                 .map((user) -> this.modelMapper.map(user, UserDto.class))
                 .collect(Collectors.toList());
 
-        log.info("Completed Dao call for search user");
+        log.info("completed request for get keyword  from dao call {} ",dtoList);
         return dtoList;
     }
 }

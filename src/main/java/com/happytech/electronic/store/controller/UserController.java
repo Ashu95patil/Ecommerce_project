@@ -40,28 +40,33 @@ public class UserController {
     @Autowired
     private FileService fileService;
 
-    @Value("${user.profile.image.path}")
+    @Value(AppConstants.USER_IMAGE_PATH)
     private String imageUploadPath;
 
 
     @PostMapping("/")
     public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto userDto) {
+        log.info("Entering into the method : this is the userDto {} ",userDto);
 
-        log.info("Initiating request for save user");
         UserDto saveUser = userService.createUser(userDto);
+        log.info("Exiting into the method : this is the newDto of userDto  {} ",saveUser);
 
-        log.info("Completed request for save user");
+
         return new ResponseEntity<>(saveUser, HttpStatus.CREATED);
     }
 
     @PutMapping("/{userId}")
     public ResponseEntity<UserDto> updateUser(@Valid @RequestBody UserDto userDto, @PathVariable Long userId) {
 
-        log.info("Initiating request for update user");
+        log.info("Entering into the method : this is the userDto {} ",userDto);
+
+        log.info("Entering into the method : this is the userId {} ",userId);
+
 
         UserDto updateUser = userService.updateUser(userDto, userId);
 
-        log.info("Completed request for update user");
+        log.info("Exiting into the method : this is the updateUser of userDto  {} ",updateUser);
+
         return new ResponseEntity<>(updateUser, HttpStatus.CREATED);
 
     }
@@ -69,13 +74,13 @@ public class UserController {
     @DeleteMapping("/{userId}")
     public ResponseEntity<ApiResponse> deleteUser(@PathVariable Long userId) {
 
-        log.info("Initiating request for delete user");
+        log.info("Entering into the method : this is the userId {} ",userId);
 
         userService.deleteUser(userId);
 
         ApiResponse apiResponse = ApiResponse.builder().message(AppConstants.USER_DELETE).success(true).status(HttpStatus.OK).build();
 
-        log.info("Completed request for delete user");
+        log.info("Exiting into the method : this is the apiResponse of userId  {} ",apiResponse);
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
 
@@ -85,11 +90,12 @@ public class UserController {
                                                                  @RequestParam(value = AppConstants.BY_VALUE, defaultValue = AppConstants.SORT_BY, required = false) String sortBy,
                                                                  @RequestParam(value = AppConstants.DIR_VALUE, defaultValue = AppConstants.SORT_DIR, required = false) String sortDir) {
 
-        log.info("Initiating request for getAll user");
+        log.info("Entering into the method : this is the userDto ");
+
 
         PageableResponse<UserDto> allUser = userService.getAllUser(pageNumber, pageSize, sortBy, sortDir);
 
-        log.info("Completed request for getAll user");
+        log.info("Exiting into the method : this is the allUser of userDto  {} ",allUser);
         return new ResponseEntity<>(allUser, HttpStatus.OK);
 
     }
@@ -97,23 +103,22 @@ public class UserController {
     @GetMapping("{userId}")
     public ResponseEntity<UserDto> getSingleUser(@PathVariable Long userId) {
 
-        log.info("Initiating request for getSingle user");
+        log.info("Entering into the method : this is the userId {} ",userId);
 
         UserDto singleUser = userService.getSingleUser(userId);
 
-        log.info("Completed request for getSingle user");
-
+        log.info("Exiting into the method : this is the singleUser of userId  {} ",singleUser);
         return new ResponseEntity<>(singleUser, HttpStatus.OK);
     }
 
     @GetMapping("/email/{email}")
     public ResponseEntity<UserDto> getUserByEmail(@PathVariable String email) {
 
-        log.info("Initiating request for getByEmail user");
+        log.info("Entering into the method : this is the email {} ",email);
 
         UserDto userByEmail = userService.getUserByEmail(email);
 
-        log.info("Completed request for getByEmail user");
+        log.info("Exiting into the method : this is the userByEmail of email  {} ",userByEmail);
 
         return new ResponseEntity<>(userByEmail, HttpStatus.OK);
 
@@ -123,12 +128,11 @@ public class UserController {
     @GetMapping("/search/{keyword}")
     public ResponseEntity<List<UserDto>> searchUser(@PathVariable String keyword) {
 
-        log.info("Initiating request for search user");
+        log.info("Entering into the method : this is the keyword {} ",keyword);
 
         List<UserDto> searchUser = userService.searchUser(keyword);
 
-        log.info("Completed request for search user");
-
+        log.info("Exiting into the method : this is the searchUser of keyword  {} ",searchUser);
         return new ResponseEntity<>(searchUser, HttpStatus.OK);
 
     }
@@ -138,6 +142,10 @@ public class UserController {
     @PostMapping("/image/{userId}")
     public ResponseEntity<ImageResponse> uploadImage(@RequestParam("userImage") MultipartFile image,
                                                      @PathVariable Long userId) throws IOException {
+
+        log.info("Entering into the method : this is the image {} ",image);
+        log.info("Entering into the method : this is the userId {} ",userId);
+
         String imageName = fileService.uploadFile(image, imageUploadPath);
         UserDto singleUser = userService.getSingleUser(userId);
 
@@ -145,6 +153,9 @@ public class UserController {
         UserDto userDto = userService.updateUser(singleUser, userId);
 
         ImageResponse imageResponse = ImageResponse.builder().imageName(imageName).message(AppConstants.FILE_UPLOADED).success(true).status(HttpStatus.CREATED).build();
+
+        log.info("Exiting into the method : this is the imageResponse of image  {} ",imageResponse);
+
         return new ResponseEntity<>(imageResponse, HttpStatus.CREATED);
     }
 
@@ -152,6 +163,9 @@ public class UserController {
     //serve user image
     @GetMapping("/image/{userId}")
     public void serveImage(@PathVariable Long userId, HttpServletResponse response) throws IOException {
+
+        log.info("Entering into the method : this is the userId {} ",userId);
+
 
         UserDto singleUser = userService.getSingleUser(userId);
 
@@ -161,5 +175,6 @@ public class UserController {
         response.setContentType(MediaType.IMAGE_JPEG_VALUE);
         StreamUtils.copy(resource,response.getOutputStream());
 
+        log.info("Exiting into the method : this is the resource of userId  {} ",resource);
     }
 }
