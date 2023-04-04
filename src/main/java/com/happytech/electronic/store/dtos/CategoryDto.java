@@ -1,5 +1,6 @@
 package com.happytech.electronic.store.dtos;
 
+import com.happytech.electronic.store.config.AppConstants;
 import com.happytech.electronic.store.validate.ImageNameValid;
 import lombok.*;
 
@@ -13,19 +14,19 @@ import javax.validation.constraints.Size;
 @Getter
 @Setter
 @Builder
-public class CategoryDto {
+public class CategoryDto extends BaseEntityDto {
 
 
     private Long categoryId;
 
-    @NotBlank(message = "title must be required....!!!")
-    @Size(min = 4, message = "title must be of minimum 4 character...!!")
+    @NotBlank(message = AppConstants.TITLE_MESSAGE)
+    @Size(min = 4, message = AppConstants.TITLE_SIZE_MSG)
     private String title;
 
-    @NotBlank(message = "Description required..!!")
+    @NotBlank(message = AppConstants.DESCRIPTION_MSG)
     private String description;
 
-    @NotBlank(message = "cover image required..!!")
+    @NotBlank(message = AppConstants.COVERIMAGE_MSG)
     @ImageNameValid
     private String coverImage;
 }
