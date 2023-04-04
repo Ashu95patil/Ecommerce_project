@@ -1,44 +1,43 @@
 package com.happytech.electronic.store.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import lombok.*;
 
-//@Entity
-//@Table(name="products")
-public class Product {
+import javax.persistence.*;
+import java.util.List;
 
-//    @Id
-//    //@GeneratedValue(strategy = GenerationType.AUTO)
-//    @Column(name = "id", unique = true, nullable = false)
-//    private Integer id;
-//
-//    /** The name. */
-//    @Column(name = "name", nullable = false)
-//    private String name;
-//
-//    /** The description. */
-//    @Column(name = "description")
-//    private String description;
-//
-//    /** The weight. */
-//    @Column(name = "weight")
-//    private double weight;
-//
-//    /** The price. */
-//    @Column(name = "price", nullable = false)
-//    private double price;
-//
-//    /** The pictures. */
-//    @Column(name = "picture1")
-//    private String picture1;
-//
-//    /** The pictures. */
-//    @Column(name = "picture2")
-//    private String picture2;
-//
-//    /** The pictures. */
-//    @Column(name = "picture3")
-//    private String picture3;
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Builder
+@Entity
+@Table(name = "products")
+public class Product extends BaseEntityClass {
+  @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long productId;
+    @Column(name = "product_title",nullable = false)
+    private String title;
+    @Column(name = "product_description",length = 1000)
+    private String description;
+    @Column(name = "product_price")
+    private Double price;
+    @Column(name = "product_discountprice")
+    private Double discountedPrice;
+    @Column(name = "product_sku",length = 50, nullable = false)
+    private String sku;    //stock keeping unit
+    @Column(name = "product_quatity")
+    private Integer quantity;
+    private Integer quantityInStock;
+    @Column(name = "product_stock")
+    private boolean stock;
+    @Column(name = "product_brandName")
+    private String brand;
+    //  private String imageUrl;
+    @Column(name = "product_rating")
+    private Double rating;
 
+    @Column(name = "product_live")
+    private boolean live;
 
 }
