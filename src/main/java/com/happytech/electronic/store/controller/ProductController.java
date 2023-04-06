@@ -6,9 +6,7 @@ import com.happytech.electronic.store.dtos.PageableResponse;
 import com.happytech.electronic.store.dtos.ProductDto;
 import com.happytech.electronic.store.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
-import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -75,7 +73,7 @@ public class ProductController {
 
     }
 
-    @GetMapping("/")
+    @GetMapping("/all")
     public ResponseEntity<PageableResponse<ProductDto>> getAllProduct(@RequestParam(value = AppConstants.NO_VALUE, defaultValue = AppConstants.PAGE_NUMBER, required = false) Integer pageNumber,
                                                                       @RequestParam(value = AppConstants.SIZE_VALUE, defaultValue = AppConstants.PAGE_SIZE, required = false) Integer pageSize,
                                                                       @RequestParam(value = AppConstants.BY_VALUE, defaultValue = AppConstants.SORT_BYProd, required = false) String sortBy,
