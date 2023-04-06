@@ -18,6 +18,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
@@ -53,7 +54,6 @@ public class ProductServiceImpl implements ProductService {
         log.info("Initiating request for update product to dao call {} ",productId);
         log.info("Initiating request for update product to dao call {} ",productDto);
 
-        // Product product = this.modelMapper.map(productDto, Product.class);
         Product product = productRepository.findById(productId).orElseThrow(() -> new ResourceNotFoundException(AppConstants.PRODUCT, AppConstants.PRODUCT_ID, productId));
         product.setTitle(productDto.getTitle());
         product.setBrand(productDto.getBrand());
@@ -98,7 +98,6 @@ public class ProductServiceImpl implements ProductService {
 
         Product product = productRepository.findById(productId).orElseThrow(() -> new ResourceNotFoundException(AppConstants.PRODUCT, AppConstants.PRODUCT_ID, productId));
 
-        boolean equals = product.getIsactive().equals(AppConstants.NO);
         ProductDto getSingleProduct = this.modelMapper.map(product, ProductDto.class);
 
 
@@ -119,7 +118,9 @@ public class ProductServiceImpl implements ProductService {
 
         Page<Product> page = this.productRepository.findAll(pageable);
 
-//         page.stream().filter(p -> p.getIsactive().equals(AppConstants.YES)).collect(Collectors.toList());
+     //   page.stream().filter(p -> p.getIsactive()==(AppConstants.YES)).collect(Collectors.toList());
+       // page.stream().filter(p -> p.getIsactive().contentEquals(AppConstants.YES)).
+
         PageableResponse<ProductDto> pagebleResponse = Sort_Helper.getPagebleResponse(page, ProductDto.class);
 
         log.info("completed request getAllProducts from dao call {} ",pagebleResponse);
@@ -156,7 +157,7 @@ public class ProductServiceImpl implements ProductService {
         Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
 
         Page<Product> byTitleContaining = productRepository.findByTitleContaining(subTitle,pageable);
-        byTitleContaining.stream().filter(p -> p.getIsactive().equals(AppConstants.YES)).collect(Collectors.toList());
+        byTitleContaining.stream().filter(p -> p.getIsactive()==(AppConstants.YES)).collect(Collectors.toList());
         PageableResponse<ProductDto> pagebleResponse = Sort_Helper.getPagebleResponse(byTitleContaining, ProductDto.class);
 
         log.info("completed request for searchProductsByKeyword  from dao call {} ",pagebleResponse);
@@ -175,7 +176,7 @@ public class ProductServiceImpl implements ProductService {
 
         Page<Product> page = productRepository.findProductsByBrand(brand,pageable);
 
-        page.stream().filter(p -> p.getIsactive().equals(AppConstants.YES)).collect(Collectors.toList());
+        page.stream().filter(p -> p.getIsactive()==(AppConstants.YES)).collect(Collectors.toList());
         PageableResponse<ProductDto> pagebleResponse = Sort_Helper.getPagebleResponse(page, ProductDto.class);
 
         log.info("completed request for getproductByBrand from dao call {} ",pagebleResponse);
@@ -183,3 +184,4 @@ public class ProductServiceImpl implements ProductService {
         return pagebleResponse;
     }
 }
+
