@@ -5,12 +5,13 @@ import lombok.*;
 import javax.persistence.Column;
 import javax.validation.constraints.*;
 import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @Builder
-public class ProductDto extends BaseEntityDto{
+public class ProductDto extends BaseEntityDto {
 
     private Long productId;
     @NotBlank

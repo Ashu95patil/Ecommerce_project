@@ -43,7 +43,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public CategoryDto createCategory(CategoryDto categoryDto) {
 
-        log.info("Initiating request for save user to dao call {} ",categoryDto);
+        log.info("Initiating request for save user to dao call {} ", categoryDto);
 
 
         Category category = this.modelMapper.map(categoryDto, Category.class);
@@ -54,15 +54,15 @@ public class CategoryServiceImpl implements CategoryService {
 
         CategoryDto savecategoryDto = this.modelMapper.map(saveCat, CategoryDto.class);
 
-        log.info("completed request for saved user from dao call {} ",savecategoryDto);
+        log.info("completed request for saved user from dao call {} ", savecategoryDto);
 
         return savecategoryDto;
     }
 
     @Override
     public CategoryDto updateCategory(CategoryDto categoryDto, Long categoryId) {
-        log.info("Initiating request for update user to dao call {} ",categoryDto);
-        log.info("Initiating request for update user to dao call {} ",categoryId);
+        log.info("Initiating request for update user to dao call {} ", categoryDto);
+        log.info("Initiating request for update user to dao call {} ", categoryId);
 
         //get category of given id
         Category category = categoryRepo.findById(categoryId).orElseThrow(() -> new CategoryNotFoundException(AppConstants.CATEGORY, AppConstants.CATEGORY_ID, categoryId));
@@ -75,75 +75,75 @@ public class CategoryServiceImpl implements CategoryService {
         Category Cat = categoryRepo.save(category);
 
         CategoryDto updatedCat = this.modelMapper.map(Cat, CategoryDto.class);
-        log.info("completed request for updated user from dao call {} ",updatedCat);
+        log.info("completed request for updated user from dao call {} ", updatedCat);
 
         return updatedCat;
     }
 
     @Override
     public void deleteCategory(Long categoryId) {
-        log.info("Initiating request for delete user to dao call {} ",categoryId);
+        log.info("Initiating request for delete user to dao call {} ", categoryId);
 
         Category category = categoryRepo.findById(categoryId).orElseThrow(() -> new CategoryNotFoundException(AppConstants.CATEGORY, AppConstants.CATEGORY_ID, categoryId));
 
         //delete category profile image
         //images/category/abc.png  (is tarah path milelga)
 
-        String fullPath = imageUploadPath+category.getCoverImage();
-        try{
+        String fullPath = imageUploadPath + category.getCoverImage();
+        try {
             Path path = Paths.get(fullPath);
             Files.delete(path);
-        }catch (NoSuchFileException ex) {
+        } catch (NoSuchFileException ex) {
             log.info("Category image not found in folder....!!");
             ex.printStackTrace();
-        }catch (IOException io){
+        } catch (IOException io) {
             io.printStackTrace();
         }
 
-       category.setIsactive(AppConstants.NO);
+        category.setIsactive(AppConstants.NO);
 
         categoryRepo.delete(category);
-        log.info("completed request for deleted user from dao call {} ",category);
+        log.info("completed request for deleted user from dao call {} ", category);
 
 
     }
 
     @Override
-    public PageableResponse<CategoryDto> getAllCategory(Integer pageNumber,Integer pageSize,String sortBy,String sortDir) {
+    public PageableResponse<CategoryDto> getAllCategory(Integer pageNumber, Integer pageSize, String sortBy, String sortDir) {
         log.info("Initiating request for getAllUser user to dao call ");
 
         Sort sort = (sortDir.equalsIgnoreCase("desc") ? Sort.by(sortBy).descending() : Sort.by(sortBy).ascending());
-        Pageable page = PageRequest.of(pageNumber, pageSize,sort);
+        Pageable page = PageRequest.of(pageNumber, pageSize, sort);
         Page<Category> getpage = categoryRepo.findAll(page);
 
         getpage.stream().filter(c -> c.getIsactive().equals(AppConstants.YES)).collect(Collectors.toList());
 
         PageableResponse<CategoryDto> pagebleResponse = Sort_Helper.getPagebleResponse(getpage, CategoryDto.class);
-        log.info("completed request for getAllUser user from dao call {} ",pagebleResponse);
+        log.info("completed request for getAllUser user from dao call {} ", pagebleResponse);
 
         return pagebleResponse;
     }
 
     @Override
     public CategoryDto getSingleCategory(Long categoryId) {
-        log.info("Initiating request for getSingleUser user to dao call {} ",categoryId);
+        log.info("Initiating request for getSingleUser user to dao call {} ", categoryId);
 
         Category singleCat = categoryRepo.findById(categoryId).orElseThrow(() -> new CategoryNotFoundException(AppConstants.CATEGORY, AppConstants.CATEGORY_ID, categoryId));
 
         CategoryDto singleCategory = this.modelMapper.map(singleCat, CategoryDto.class);
-        log.info("completed request for getSingleUser user from dao call {} ",singleCategory);
+        log.info("completed request for getSingleUser user from dao call {} ", singleCategory);
 
         return singleCategory;
     }
 
     @Override
     public List<CategoryDto> searchCategory(String keyword) {
-        log.info("Initiating request for get keyword to dao call {} ",keyword);
+        log.info("Initiating request for get keyword to dao call {} ", keyword);
 
         List<Category> categories = categoryRepo.findByTitleContaining(keyword);
 
         List<CategoryDto> searchCat = categories.stream().map((cat) -> this.modelMapper.map(cat, CategoryDto.class)).collect(Collectors.toList());
-        log.info("completed request for get keyword  from dao call {} ",searchCat);
+        log.info("completed request for get keyword  from dao call {} ", searchCat);
 
         return searchCat;
     }

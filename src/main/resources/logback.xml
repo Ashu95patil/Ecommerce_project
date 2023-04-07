@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <configuration>
-    <property name="LOGS" value="./logs" />
+    <property name="LOGS" value="./logs"/>
     <!-- this print for console -->
     <appender name="ConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
@@ -12,7 +12,9 @@
                     3) This component specifies a custom field traceId which is stored in the MDC (Mapped Diagnostic Context). The %X{x-trace-id} part retrieves the value of the x-trace-id key from the MDC.
                    4) [%green(%t)]: This component specifies the thread name. The %green part is used to format the thread name text in green color.
                     5) %yellow(%logger{20}): This component specifies the logger name with a maximum length of 20 characters. -->
-                %white(%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}) %highlight(%-5level) [%cyan(traceId: %X{x-trace-id})] [%cyan(sourceIp: %X{x-source-ip})] [%cyan(userId: %X{x-userId})] [%green(%t)] %yellow(%logger{20})::%magenta(%L): -  %msg%n
+                %white(%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}) %highlight(%-5level) [%cyan(traceId: %X{x-trace-id})]
+                [%cyan(sourceIp: %X{x-source-ip})] [%cyan(userId: %X{x-userId})] [%green(%t)]
+                %yellow(%logger{20})::%magenta(%L): - %msg%n
             </pattern>
         </encoder>
     </appender>
@@ -22,7 +24,7 @@
         <file>${LOGS}/electronic_store.log</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>
-               <!--%white(%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}) %highlight(%-5level) [%cyan(traceId: %X{x-trace-id})] [%cyan(sourceIp: %X{x-source-ip})] [%cyan(userId: %X{x-userId})] [%green(%t)] %yellow(%logger{20})::%magenta(%L): - %msg%n -->
+                <!--%white(%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}) %highlight(%-5level) [%cyan(traceId: %X{x-trace-id})] [%cyan(sourceIp: %X{x-source-ip})] [%cyan(userId: %X{x-userId})] [%green(%t)] %yellow(%logger{20})::%magenta(%L): - %msg%n -->
                 %d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n
             </pattern>
         </encoder>
@@ -51,8 +53,10 @@
 
     </root>
 
-    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
-    <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter" />
-    <conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter" />
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
+    <conversionRule conversionWord="wex"
+                    converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
+    <conversionRule conversionWord="wEx"
+                    converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"/>
 
 </configuration>

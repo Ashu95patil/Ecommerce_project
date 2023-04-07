@@ -9,7 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
+
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDate;
 
@@ -21,11 +21,11 @@ import java.time.LocalDate;
 
 public class BaseEntityClass {
 
-     @Column(name="create_date",updatable = false)
+    @Column(name = "create_date", updatable = false)
     @CreationTimestamp
     private LocalDate createdate;
 
-    @Column(name = "update_date",insertable = false)
+    @Column(name = "update_date", insertable = false)
     @UpdateTimestamp
     private LocalDate updatedate;
 

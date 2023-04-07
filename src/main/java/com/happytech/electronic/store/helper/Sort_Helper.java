@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class Sort_Helper {
 
 
-    public static <U,V>PageableResponse<V> getPagebleResponse(Page<U> page,Class<V> type){
+    public static <U, V> PageableResponse<V> getPagebleResponse(Page<U> page, Class<V> type) {
 
         List<U> entity = page.getContent();
         List<V> userDtoList = entity.stream().map(user -> new ModelMapper().map(user, type)).collect(Collectors.toList());
@@ -23,7 +23,7 @@ public class Sort_Helper {
         pageableResponse.setTotalPages(page.getTotalPages());
         pageableResponse.setLastPage(page.isLast());
 
-        return  pageableResponse;
+        return pageableResponse;
 
     }
 }

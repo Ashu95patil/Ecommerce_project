@@ -27,6 +27,7 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(apiResponse, HttpStatus.NOT_FOUND);
 
     }
+
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ApiResponse> resourceNotFoundExceptionHandler(ResourceNotFoundException u) {
 
@@ -38,6 +39,7 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(apiResponse, HttpStatus.NOT_FOUND);
 
     }
+
     @ExceptionHandler(EmailNotFoundException.class)
     public ResponseEntity<String> emailNotFoundExceptionHandler(EmailNotFoundException e) {
 
@@ -80,12 +82,12 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(CategoryNotFoundException.class)
-    public ResponseEntity<ApiResponse> categoryNotFoundExceptionHandler(CategoryNotFoundException c){
+    public ResponseEntity<ApiResponse> categoryNotFoundExceptionHandler(CategoryNotFoundException c) {
 
         log.info("Category id not found....!!");
 
         ApiResponse apiResponse = ApiResponse.builder().message(c.getMessage()).success(false).status(HttpStatus.NOT_FOUND).build();
 
-       return  new ResponseEntity<>(apiResponse,HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(apiResponse, HttpStatus.BAD_REQUEST);
     }
 }

@@ -10,7 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class ResourceNotFoundException extends RuntimeException{
+public class ResourceNotFoundException extends RuntimeException {
 
     String resourceName;
     String fieldName;
@@ -19,7 +19,7 @@ public class ResourceNotFoundException extends RuntimeException{
 
 
     public ResourceNotFoundException(String resourceName, String fieldName, Long fieldValue) {
-        super(String.format(AppConstants.STRING_FORMAT,resourceName,fieldName,fieldValue));
+        super(String.format(AppConstants.STRING_FORMAT, resourceName, fieldName, fieldValue));
         this.resourceName = resourceName;
         this.fieldName = fieldName;
         this.fieldValue = fieldValue;

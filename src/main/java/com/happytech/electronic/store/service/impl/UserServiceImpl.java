@@ -61,7 +61,7 @@ public class UserServiceImpl implements UserService  {
         //entity -> dto
         UserDto newDto = entityToDto(savedUser);
 
-        log.info("completed request for saved user from dao call {} ",newDto);
+        log.info("completed request for saved user from dao call {} ", newDto);
 
         return newDto;
     }

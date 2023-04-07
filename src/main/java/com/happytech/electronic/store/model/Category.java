@@ -1,7 +1,6 @@
 package com.happytech.electronic.store.model;
 
 import lombok.*;
-import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
 
@@ -12,7 +11,7 @@ import javax.persistence.*;
 @Builder
 @Entity
 @Table(name = "categories")
-public class Category extends BaseEntityClass{
+public class Category extends BaseEntityClass {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

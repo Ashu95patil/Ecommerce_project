@@ -27,14 +27,14 @@ public class FileServiceImpl implements FileService {
         String extention = originalFilename.substring(originalFilename.lastIndexOf("."));
 
         String fileNameWithExtension = filename + extention;
-        String fullPathWithFileName = path  + fileNameWithExtension;
+        String fullPathWithFileName = path + fileNameWithExtension;
 
-         log.info("full image path : {} ",fullPathWithFileName);
+        log.info("full image path : {} ", fullPathWithFileName);
 
-         if (extention.equalsIgnoreCase(AppConstants.PNG) || extention.equalsIgnoreCase(AppConstants.JPG) || extention.equalsIgnoreCase(AppConstants.JPEG)) {
+        if (extention.equalsIgnoreCase(AppConstants.PNG) || extention.equalsIgnoreCase(AppConstants.JPG) || extention.equalsIgnoreCase(AppConstants.JPEG)) {
 
             //file save
-            log.info("file extention is {} ",extention);
+            log.info("file extention is {} ", extention);
             File folder = new File(path);
 
             if (!folder.exists()) {
@@ -56,11 +56,11 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public InputStream getResource(String path , String name) throws FileNotFoundException {
+    public InputStream getResource(String path, String name) throws FileNotFoundException {
 
-        String fullPath = path+File.separator+name;
-                InputStream inputStream = new FileInputStream(fullPath);
-                return  inputStream;
+        String fullPath = path + File.separator + name;
+        InputStream inputStream = new FileInputStream(fullPath);
+        return inputStream;
 
     }
 }

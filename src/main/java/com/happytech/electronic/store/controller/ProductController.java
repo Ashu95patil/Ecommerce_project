@@ -23,11 +23,11 @@ public class ProductController {
 
     @PostMapping("/")
     public ResponseEntity<ProductDto> createProduct(@Valid @RequestBody ProductDto productDto) {
-        log.info("Entering into the method : this is the productDto {} ",productDto);
+        log.info("Entering into the method : this is the productDto {} ", productDto);
 
 
         ProductDto saveProduct = productService.createProduct(productDto);
-        log.info("Exiting into the method : this is the saveProduct of productDto  {} ",saveProduct);
+        log.info("Exiting into the method : this is the saveProduct of productDto  {} ", saveProduct);
 
         return new ResponseEntity<>(saveProduct, HttpStatus.CREATED);
 
@@ -35,12 +35,12 @@ public class ProductController {
 
     @PutMapping("/{productId}")
     public ResponseEntity<ProductDto> createProduct(@Valid @RequestBody ProductDto productDto, @PathVariable Long productId) {
-        log.info("Entering into the method : this is the productDto {} ",productDto);
-        log.info("Entering into the method : this is the productId {} ",productId);
+        log.info("Entering into the method : this is the productDto {} ", productDto);
+        log.info("Entering into the method : this is the productId {} ", productId);
 
 
         ProductDto updateProduct = productService.updateProduct(productId, productDto);
-        log.info("Exiting into the method : this is the updateProduct of prodctDto  {} ",updateProduct);
+        log.info("Exiting into the method : this is the updateProduct of prodctDto  {} ", updateProduct);
 
         return new ResponseEntity<>(updateProduct, HttpStatus.CREATED);
 
@@ -48,13 +48,13 @@ public class ProductController {
 
     @DeleteMapping("/{productId}")
     public ResponseEntity<ApiResponse> deleteProduct(@PathVariable Long productId) {
-        log.info("Entering into the method : this is the productId {} ",productId);
+        log.info("Entering into the method : this is the productId {} ", productId);
 
         productService.deleteProduct(productId);
 
         ApiResponse apiResponse = ApiResponse.builder().message(AppConstants.PRODUCT_DELETE).success(true).status(HttpStatus.OK).build();
 
-        log.info("Exiting into the method : this is the apiResponse of productDto  {} ",apiResponse);
+        log.info("Exiting into the method : this is the apiResponse of productDto  {} ", apiResponse);
 
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
 
@@ -62,12 +62,12 @@ public class ProductController {
 
     @GetMapping("/{productId}")
     public ResponseEntity<ProductDto> getSinglProduct(@PathVariable Long productId) {
-        log.info("Entering into the method : this is the productId {} ",productId);
+        log.info("Entering into the method : this is the productId {} ", productId);
 
 
         ProductDto productById = productService.getProductById(productId);
 
-        log.info("Exiting into the method : this is the productById of productDto  {} ",productById);
+        log.info("Exiting into the method : this is the productById of productDto  {} ", productById);
 
         return new ResponseEntity<>(productById, HttpStatus.OK);
 
@@ -82,7 +82,7 @@ public class ProductController {
 
 
         PageableResponse<ProductDto> allProducts = productService.getAllProducts(pageNumber, pageSize, sortBy, sortDir);
-        log.info("Exiting into the method : this is the allProducts of productDto  {} ",allProducts);
+        log.info("Exiting into the method : this is the allProducts of productDto  {} ", allProducts);
 
 
         return new ResponseEntity<>(allProducts, HttpStatus.OK);
@@ -99,7 +99,7 @@ public class ProductController {
         log.info("Entering into the method : this is the liveProduct ");
 
         PageableResponse<ProductDto> allLive = productService.getAllLive(pageNumber, pageSize, sortBy, sortDir);
-        log.info("Exiting into the method : this is the allLive of productDto  {} ",allLive);
+        log.info("Exiting into the method : this is the allLive of productDto  {} ", allLive);
 
         return new ResponseEntity<>(allLive, HttpStatus.OK);
 
@@ -111,12 +111,12 @@ public class ProductController {
                                                                                 @RequestParam(value = AppConstants.BY_VALUE, defaultValue = AppConstants.SORT_BYProd, required = false) String sortBy,
                                                                                 @RequestParam(value = AppConstants.DIR_VALUE, defaultValue = AppConstants.SORT_DIR, required = false) String sortDir) {
 
-        log.info("Entering into the method : this is the subTitle {} ",subTitle);
+        log.info("Entering into the method : this is the subTitle {} ", subTitle);
 
 
         PageableResponse<ProductDto> allKeywords = productService.searchProductsByKeyword(subTitle, pageNumber, pageSize, sortBy, sortDir);
 
-        log.info("Exiting into the method : this is the allKeywords of productDto  {} ",allKeywords);
+        log.info("Exiting into the method : this is the allKeywords of productDto  {} ", allKeywords);
 
         return new ResponseEntity<>(allKeywords, HttpStatus.OK);
 
@@ -128,11 +128,11 @@ public class ProductController {
                                                                            @RequestParam(value = AppConstants.BY_VALUE, defaultValue = AppConstants.SORT_BYProd, required = false) String sortBy,
                                                                            @RequestParam(value = AppConstants.DIR_VALUE, defaultValue = AppConstants.SORT_DIR, required = false) String sortDir) {
 
-        log.info("Entering into the method : this is the productBrand {} ",brand);
+        log.info("Entering into the method : this is the productBrand {} ", brand);
 
         PageableResponse<ProductDto> allBrands = productService.getProductsByBrand(brand, pageNumber, pageSize, sortBy, sortDir);
 
-        log.info("Exiting into the method : this is the allBrands of productDto  {} ",allBrands);
+        log.info("Exiting into the method : this is the allBrands of productDto  {} ", allBrands);
 
         return new ResponseEntity<>(allBrands, HttpStatus.OK);
 

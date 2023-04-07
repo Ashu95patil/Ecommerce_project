@@ -49,7 +49,7 @@ public class UserController {
         log.info("Entering into the method : this is the userDto {} ",userDto);
 
         UserDto saveUser = userService.createUser(userDto);
-        log.info("Exiting into the method : this is the newDto of userDto  {} ",saveUser);
+        log.info("Exiting into the method : this is the newDto of userDto  {} ", saveUser);
 
 
         return new ResponseEntity<>(saveUser, HttpStatus.CREATED);

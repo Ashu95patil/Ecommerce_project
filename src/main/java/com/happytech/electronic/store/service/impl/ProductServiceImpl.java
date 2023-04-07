@@ -25,13 +25,14 @@ import java.util.stream.Collectors;
 @Slf4j
 public class ProductServiceImpl implements ProductService {
     @Autowired
-  private  ProductRepository productRepository;
+    private ProductRepository productRepository;
 
     @Autowired
     private ModelMapper modelMapper;
+
     @Override
     public ProductDto createProduct(ProductDto productDto) {
-        log.info("Initiating request for create product to dao call {} ",productDto);
+        log.info("Initiating request for create product to dao call {} ", productDto);
 
         Product product = this.modelMapper.map(productDto, Product.class);
 
@@ -42,7 +43,7 @@ public class ProductServiceImpl implements ProductService {
 
         ProductDto savedProduct = this.modelMapper.map(saveProduct, ProductDto.class);
 
-        log.info("completed request for saved user from dao call {} ",savedProduct);
+        log.info("completed request for saved user from dao call {} ", savedProduct);
 
 
         return savedProduct;
@@ -51,8 +52,8 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductDto updateProduct(Long productId, ProductDto productDto) {
 
-        log.info("Initiating request for update product to dao call {} ",productId);
-        log.info("Initiating request for update product to dao call {} ",productDto);
+        log.info("Initiating request for update product to dao call {} ", productId);
+        log.info("Initiating request for update product to dao call {} ", productDto);
 
         Product product = productRepository.findById(productId).orElseThrow(() -> new ResourceNotFoundException(AppConstants.PRODUCT, AppConstants.PRODUCT_ID, productId));
         product.setTitle(productDto.getTitle());
@@ -69,9 +70,8 @@ public class ProductServiceImpl implements ProductService {
         Product updateProduct = productRepository.save(product);
 
 
-
         ProductDto updatedProduct = this.modelMapper.map(updateProduct, ProductDto.class);
-        log.info("completed request for updated product from dao call {} ",updatedProduct);
+        log.info("completed request for updated product from dao call {} ", updatedProduct);
 
         return updatedProduct;
     }
@@ -79,14 +79,14 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void deleteProduct(Long productId) {
 
-        log.info("Initiating request for delete product to dao call {} ",productId);
+        log.info("Initiating request for delete product to dao call {} ", productId);
 
         Product product = productRepository.findById(productId).orElseThrow(() -> new ResourceNotFoundException(AppConstants.PRODUCT, AppConstants.PRODUCT_ID, productId));
-         product.setIsactive(AppConstants.NO);
+        product.setIsactive(AppConstants.NO);
 
 
         productRepository.save(product);
-        log.info("completed request for deleted product from dao call {} ",product);
+        log.info("completed request for deleted product from dao call {} ", product);
 
 
     }
@@ -94,15 +94,14 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductDto getProductById(Long productId) {
 
-        log.info("Initiating request for get ProductId to dao call {} ",productId);
+        log.info("Initiating request for get ProductId to dao call {} ", productId);
 
         Product product = productRepository.findById(productId).orElseThrow(() -> new ResourceNotFoundException(AppConstants.PRODUCT, AppConstants.PRODUCT_ID, productId));
 
         ProductDto getSingleProduct = this.modelMapper.map(product, ProductDto.class);
 
 
-
-        log.info("completed request for get ProductId from dao call {} ",getSingleProduct);
+        log.info("completed request for get ProductId from dao call {} ", getSingleProduct);
 
         return getSingleProduct;
     }
@@ -112,18 +111,18 @@ public class ProductServiceImpl implements ProductService {
 
         log.info("Initiating request for getAllProducts to dao call ");
 
-        Sort sort = (sortDir.equalsIgnoreCase(AppConstants.SORT_DIR_DESC))?(Sort.by(sortBy).descending()):(Sort.by(sortBy).ascending());
+        Sort sort = (sortDir.equalsIgnoreCase(AppConstants.SORT_DIR_DESC)) ? (Sort.by(sortBy).descending()) : (Sort.by(sortBy).ascending());
 
-        Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
+        Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
 
         Page<Product> page = this.productRepository.findAll(pageable);
 
-     //   page.stream().filter(p -> p.getIsactive()==(AppConstants.YES)).collect(Collectors.toList());
-       // page.stream().filter(p -> p.getIsactive().contentEquals(AppConstants.YES)).
+        //   page.stream().filter(p -> p.getIsactive()==(AppConstants.YES)).collect(Collectors.toList());
+        // page.stream().filter(p -> p.getIsactive().contentEquals(AppConstants.YES)).
 
         PageableResponse<ProductDto> pagebleResponse = Sort_Helper.getPagebleResponse(page, ProductDto.class);
 
-        log.info("completed request getAllProducts from dao call {} ",pagebleResponse);
+        log.info("completed request getAllProducts from dao call {} ", pagebleResponse);
 
         return pagebleResponse;
     }
@@ -133,53 +132,53 @@ public class ProductServiceImpl implements ProductService {
 
         log.info("Initiating request for getAllLive to dao call ");
 
-        Sort sort = (sortDir.equalsIgnoreCase(AppConstants.SORT_DIR))?(Sort.by(sortBy).descending()):(Sort.by(sortBy).ascending());
+        Sort sort = (sortDir.equalsIgnoreCase(AppConstants.SORT_DIR)) ? (Sort.by(sortBy).descending()) : (Sort.by(sortBy).ascending());
 
-        Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
+        Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
 
         Page<Product> page = productRepository.findByLiveTrue(pageable);
 
         page.stream().filter(p -> p.getIsactive().equals(AppConstants.YES)).collect(Collectors.toList());
         PageableResponse<ProductDto> pagebleResponse = Sort_Helper.getPagebleResponse(page, ProductDto.class);
-        log.info("completed request for  getAllLive from dao call {} ",pagebleResponse);
+        log.info("completed request for  getAllLive from dao call {} ", pagebleResponse);
 
         return pagebleResponse;
 
     }
 
     @Override
-    public PageableResponse<ProductDto> searchProductsByKeyword(String subTitle,Integer pageNumber, Integer pageSize, String sortBy, String sortDir) {
-        log.info("Initiating request for searchProductsByKeyword to dao call {} ",subTitle);
+    public PageableResponse<ProductDto> searchProductsByKeyword(String subTitle, Integer pageNumber, Integer pageSize, String sortBy, String sortDir) {
+        log.info("Initiating request for searchProductsByKeyword to dao call {} ", subTitle);
 
 
-        Sort sort = (sortDir.equalsIgnoreCase(AppConstants.SORT_DIR))?(Sort.by(sortBy).descending()):(Sort.by(sortBy).ascending());
+        Sort sort = (sortDir.equalsIgnoreCase(AppConstants.SORT_DIR)) ? (Sort.by(sortBy).descending()) : (Sort.by(sortBy).ascending());
 
-        Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
+        Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
 
-        Page<Product> byTitleContaining = productRepository.findByTitleContaining(subTitle,pageable);
-        byTitleContaining.stream().filter(p -> p.getIsactive()==(AppConstants.YES)).collect(Collectors.toList());
+        Page<Product> byTitleContaining = productRepository.findByTitleContaining(subTitle, pageable);
+        byTitleContaining.stream().filter(p -> p.getIsactive() == (AppConstants.YES)).collect(Collectors.toList());
         PageableResponse<ProductDto> pagebleResponse = Sort_Helper.getPagebleResponse(byTitleContaining, ProductDto.class);
 
-        log.info("completed request for searchProductsByKeyword  from dao call {} ",pagebleResponse);
+        log.info("completed request for searchProductsByKeyword  from dao call {} ", pagebleResponse);
 
         return pagebleResponse;
     }
 
     @Override
     public PageableResponse<ProductDto> getProductsByBrand(String brand, Integer pageNumber, Integer pageSize, String sortBy, String sortDir) {
-        log.info("Initiating request for getproductByBrand to dao call {} ",brand);
+        log.info("Initiating request for getproductByBrand to dao call {} ", brand);
 
 
-        Sort sort = (sortDir.equalsIgnoreCase(AppConstants.SORT_DIR))?(Sort.by(sortBy).descending()):(Sort.by(sortBy).ascending());
+        Sort sort = (sortDir.equalsIgnoreCase(AppConstants.SORT_DIR)) ? (Sort.by(sortBy).descending()) : (Sort.by(sortBy).ascending());
 
-        Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
+        Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
 
-        Page<Product> page = productRepository.findProductsByBrand(brand,pageable);
+        Page<Product> page = productRepository.findProductsByBrand(brand, pageable);
 
-        page.stream().filter(p -> p.getIsactive()==(AppConstants.YES)).collect(Collectors.toList());
+        page.stream().filter(p -> p.getIsactive() == (AppConstants.YES)).collect(Collectors.toList());
         PageableResponse<ProductDto> pagebleResponse = Sort_Helper.getPagebleResponse(page, ProductDto.class);
 
-        log.info("completed request for getproductByBrand from dao call {} ",pagebleResponse);
+        log.info("completed request for getproductByBrand from dao call {} ", pagebleResponse);
 
         return pagebleResponse;
     }

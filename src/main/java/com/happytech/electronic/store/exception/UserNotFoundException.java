@@ -11,7 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class UserNotFoundException extends  RuntimeException {
+public class UserNotFoundException extends RuntimeException {
 
     String resourceName;
     String fieldName;
@@ -20,7 +20,7 @@ public class UserNotFoundException extends  RuntimeException {
 
 
     public UserNotFoundException(String resourceName, String fieldName, Long fieldValue) {
-        super(String.format(AppConstants.STRING_FORMAT,resourceName,fieldName,fieldValue));
+        super(String.format(AppConstants.STRING_FORMAT, resourceName, fieldName, fieldValue));
         this.resourceName = resourceName;
         this.fieldName = fieldName;
         this.fieldValue = fieldValue;

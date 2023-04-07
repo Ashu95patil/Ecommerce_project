@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -14,7 +15,6 @@ import java.time.LocalDate;
 public class BaseEntityDto {
 
     private LocalDate createdate;
-
 
 
     private LocalDate updatedate;
