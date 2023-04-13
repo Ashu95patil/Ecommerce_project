@@ -3,6 +3,7 @@ package com.happytech.electronic.store.service;
 import com.happytech.electronic.store.dtos.PageableResponse;
 import com.happytech.electronic.store.dtos.UserDto;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 public interface UserService {
@@ -30,4 +31,6 @@ public interface UserService {
     List<UserDto> searchUser(String keyword);
 
     // other user specific features
+
+
 }
