@@ -177,4 +177,6 @@ public class UserController {
 
         log.info("Exiting into the method : this is the resource of userId  {} ",resource);
     }
+
+
 }
