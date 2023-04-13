@@ -133,13 +133,13 @@ public class CategoryController {
         CategoryDto singleCategory = categoryService.getSingleCategory(categoryId);
 
         singleCategory.setCoverImage(imageName);
-        CategoryDto categoryDto = categoryService.updateCategory(singleCategory, categoryId);
+         this.categoryService.updateCategory(singleCategory, categoryId);
 
-        ImageResponse imageResponse = ImageResponse.builder().imageName(imageName).message(AppConstants.CATEGORY_FILE_UPLOADED).success(true).status(HttpStatus.OK).build();
+        ImageResponse imageResponse = ImageResponse.builder().imageName(imageName).message(AppConstants.CATEGORY_FILE_UPLOADED).success(true).status(HttpStatus.CREATED).build();
 
         log.info("Exiting into the method : this is the imageResponse of image  {} ", imageResponse);
 
-        return new ResponseEntity<>(imageResponse, HttpStatus.OK);
+        return new ResponseEntity<>(imageResponse, HttpStatus.CREATED);
     }
 
     @GetMapping("/images/{categoryId}")
